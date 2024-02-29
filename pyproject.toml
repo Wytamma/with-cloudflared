@@ -1,0 +1,29 @@
+[project]
+name = "with-cloudflared"
+version = "0.1.0"
+description = "Context manger for Cloudflared"
+authors = [
+    { name = "Wytamma Wirth", email = "wytamma.wirth@me.com" }
+]
+dependencies = [
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "fastapi>=0.110.0",
+    "pytest>=8.0.2",
+    "uvicorn>=0.27.1",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/with_cloudflared"]
