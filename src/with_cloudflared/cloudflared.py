@@ -12,6 +12,34 @@ from .utils import get_command, extract_tarball, download_cloudflared
 
 @contextmanager
 def cloudflared(port=8000, metrics_port=None, tunnel_id=None, config_path=None, force=False, max_retries=10):
+    """
+    A context manager for running a Cloudflare tunnel. It downloads the appropriate Cloudflare binary, starts the tunnel, and yields the tunnel URL. After the context is exited, it terminates the tunnel.
+
+    Args:
+      port (int, optional): The local port to tunnel. Defaults to 8000.
+      metrics_port (int, optional): The port to serve metrics on. If not provided, a random port between 8100 and 9000 is chosen.
+      tunnel_id (str, optional): The ID of the tunnel to run. If not provided, a tunnel to the local port is created.
+      config_path (str, optional): The path to a Cloudflare configuration file. If provided, the 'run' command is used with this configuration.
+      force (bool, optional): If True, forces the download of the Cloudflare binary even if it already exists. Defaults to False.
+      max_retries (int, optional): The maximum number of times to retry connecting to the Cloudflare Edge. Defaults to 10.
+
+    Yields:
+      str: The URL of the Cloudflare tunnel.
+
+    Raises:
+      Exception: If it can't connect to the Cloudflare Edge after max_retries attempts.
+
+    Side Effects:
+      Downloads the Cloudflare binary, starts a subprocess running the Cloudflare tunnel, and modifies the permissions of the Cloudflare binary.
+
+    Notes:
+      This function requires the 'subprocess', 'tempfile', 'os', 'platform', 'time', 're', 'random.randint', 'urllib.request', and 'pathlib.Path' modules, as well as the 'get_command', 'extract_tarball', and 'download_cloudflared' functions from the '.utils' module.
+
+    Examples:
+      >>> with cloudflared(port=8080) as url:
+      ...     print(f"Cloudflare tunnel running at {url}")
+      Cloudflare tunnel running at https://randomsubdomain.trycloudflare.com
+    """
     if metrics_port is None:
         metrics_port = randint(8100, 9000)
     system, machine = platform.system(), platform.machine()
