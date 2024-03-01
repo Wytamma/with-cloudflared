@@ -32,9 +32,6 @@ def cloudflared(port=8000, metrics_port=None, tunnel_id=None, config_path=None, 
     Side Effects:
       Downloads the Cloudflare binary, starts a subprocess running the Cloudflare tunnel, and modifies the permissions of the Cloudflare binary.
 
-    Notes:
-      This function requires the 'subprocess', 'tempfile', 'os', 'platform', 'time', 're', 'random.randint', 'urllib.request', and 'pathlib.Path' modules, as well as the 'get_command', 'extract_tarball', and 'download_cloudflared' functions from the '.utils' module.
-
     Examples:
       >>> with cloudflared(port=8080) as url:
       ...     print(f"Cloudflare tunnel running at {url}")
