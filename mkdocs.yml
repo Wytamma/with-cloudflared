@@ -1,10 +1,10 @@
 
-site_name: src
+site_name: src/with_cloudflared
 repo_url: https://github.com/wytamma/with-cloudflared
 
 theme:
   name: "material"
-  # homepage: https://write-the.wytamma.com
+  homepage: https://blog.wytamma.com/with-cloudflared
   # logo: assets/logo.png
   # favicon: images/favicon.png
   palette: 
