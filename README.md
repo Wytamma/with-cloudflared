@@ -1,4 +1,6 @@
 # with-cloudflared
+[![PyPI - Version](https://img.shields.io/pypi/v/with-cloudflared.svg)](https://pypi.org/project/with-cloudflared)
+[![write-the - docs](https://badgen.net/badge/write-the/docs/blue?icon=https://raw.githubusercontent.com/Wytamma/write-the/master/images/write-the-icon.svg)](https://write-the.wytamma.com/)
 
 With-cloudflared provides a context manager to start and stop cloudflared. Cloudflare Tunnel provides you with a secure way to connect your resources to Cloudflare without a publicly routable IP address. This is useful for development and testing, as well as for production use cases. See the [Cloudflare Tunnel documentation](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) for more information.
 
