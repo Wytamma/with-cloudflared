@@ -1,5 +1,5 @@
 
-site_name: src/with_cloudflared
+site_name: with-cloudflared
 repo_url: https://github.com/wytamma/with-cloudflared
 
 theme:
